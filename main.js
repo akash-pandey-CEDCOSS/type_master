@@ -4,6 +4,8 @@ const reset_button = document.querySelector("#reset_");
 const time_ = document.querySelector(".clock");
 const testarea = document.querySelector(".test-area");
 var timer = [0, 0, 0, 0];
+var interval;
+var timer_reset=false;
 
 
 function leadingZero(time){
@@ -21,16 +23,11 @@ function runTimer() {
     timer[1] = Math.floor((timer[3] / 100) - (timer[0] * 60));
     timer[2] = Math.floor(timer[3] - (timer[1] * 100) - (timer[0] * 6000));
 }
-
-function reset_b() {
-    console.log("reset button presed");
-
-}
-
 function spellcheck() {
     let textentered = textarea_.value;
-    let origintextMatch = textgiven.substring(0,textentered);
+    let origintextMatch = textgiven.substring(0,textentered.length);
     if(textentered == textgiven){
+        clearInterval(interval);
         text_enter.style.borderColor = "#429890";
 
     }else{
@@ -42,16 +39,24 @@ function spellcheck() {
             
         }
     }
-    // console.log(textentered);
+   
 }
 
 function start_calculating() {
     let textenteredlength = textarea_.value.length;
-    if (textenteredlength === 0) {
-        setInterval(runTimer, 10);
+    if (textenteredlength === 0 && !timer_reset) {
+        timer_reset=true;
+       interval= setInterval(runTimer, 10);
     }
-    // console.log(textenteredlength);
 
+}
+function reset_b() {
+    
+    clearInterval(interval);
+    interval=null;
+    timer=[0,0,0,0];
+    timer_reset=false;
+    
 
 }
 
