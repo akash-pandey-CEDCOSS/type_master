@@ -29,7 +29,20 @@ function reset_b() {
 
 function spellcheck() {
     let textentered = textarea_.value;
-    console.log(textentered);
+    let origintextMatch = textgiven.substring(0,textentered);
+    if(textentered == textgiven){
+        text_enter.style.borderColor = "#429890";
+
+    }else{
+        if(textentered == origintextMatch){
+            text_enter.style.borderColor = "#65ccf3";
+        }else{
+            text_enter.style.borderColor = "#E95D0F";
+
+            
+        }
+    }
+    // console.log(textentered);
 }
 
 function start_calculating() {
@@ -37,7 +50,7 @@ function start_calculating() {
     if (textenteredlength === 0) {
         setInterval(runTimer, 10);
     }
-    console.log(textenteredlength);
+    // console.log(textenteredlength);
 
 
 }
