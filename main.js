@@ -7,6 +7,8 @@ var timer = [0, 0, 0, 0];
 var interval;
 var timer_reset = false;
 var count = 0;
+var txt1=textgiven.split(" ");
+var txt2=txt1.length;
 
 
 function leadingZero(time) {
@@ -31,15 +33,17 @@ function spellcheck() {
 
     if (textentered == textgiven) {
         clearInterval(interval);
+        var wpm=txt_l/(timer[0]+(timer[1])/60);
         text_enter.style.borderColor = "#429890";
+        document.getElementById("wpm_").innerHTML=wpm+" WPM";
 
-    } else {
+    } else 
         if (textentered == origintextMatch) {
             text_enter.style.borderColor = "#65ccf3";
         } else {
             text_enter.style.borderColor = "#E95D0F";
         }
-    }
+    
 }
 
 function start_calculating() {
