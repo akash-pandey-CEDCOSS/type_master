@@ -1,51 +1,59 @@
-*{
+* {
     box-sizing: border-box;
     margin: 0;
-
+    font-family: 'Noto Sans KR', sans-serif;
 }
 
-#text_enter{
+#text_enter {
     border: 10px solid gray;
     margin-left: 30%;
     margin-right: 30%;
 }
-textarea{
+
+textarea {
     border: none;
 }
-header{
-    padding: 4%;
+
+header {
+    padding: 3%;
     text-align: center;
-    background-color: rgb(13,26,45);
+    background-color: rgb(13, 26, 45);
     color: white;
 }
-article{
+
+article {
     padding: 2%;
-    /* text-align: center; */
-    background-color: rgb(74,148,143);
+    background-color: rgb(74, 148, 143);
     color: white;
 }
-article p{
+
+article p {
     margin-left: 30%;
     margin-right: 30%;
-
+    text-align: justify;
 }
-.test-area{
+
+.test-area {
     text-align: center;
 }
-#text-area{
+
+#text-area {
     width: 99%;
 }
-button{
-    margin: 2%;
+
+button {
+  
+    border: 3px solid black;
 }
-#timer{
+
+#timer {
     padding: 2%;
-   
 }
-#text_content p{
-    background-color: rgb(237,236,237);
+
+#text_content p {
+    background-color: rgb(237, 236, 237);
     padding: 3%;
     margin-left: 30%;
     margin-right: 30%;
-
+    text-align: justify;
 }
