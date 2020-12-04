@@ -6,9 +6,9 @@ const testarea = document.querySelector(".test-area");
 var timer = [0, 0, 0, 0];
 var interval;
 var timer_reset = false;
-var count = 0;
-var txt1=textgiven.split(" ");
-var txt2=txt1.length;
+var str="";
+var len=0;
+var wpm=0;
 
 
 function leadingZero(time) {
@@ -28,14 +28,20 @@ function runTimer() {
 }
 
 function spellcheck() {
+   
     let textentered = textarea_.value;
     let origintextMatch = textgiven.substring(0, textentered.length);
 
+    if(origintextMatch == " "){ 
+        str=origintextMatch.slice();
+        len=str.length;
+        wpm=len/(timer[0]+(timer[1])/60);
+        console.log(wpm)
+    }
+
     if (textentered == textgiven) {
         clearInterval(interval);
-        var wpm=txt_l/(timer[0]+(timer[1])/60);
-        text_enter.style.borderColor = "#429890";
-        document.getElementById("wpm_").innerHTML=wpm+" WPM";
+
 
     } else 
         if (textentered == origintextMatch) {
@@ -52,6 +58,7 @@ function start_calculating() {
         timer_reset = true;
         interval = setInterval(runTimer, 10);
     }
+   
 
 }
 
@@ -62,6 +69,6 @@ function reset_b() {
     timer_reset = false;
 }
 
-textarea_.addEventListener("keypress", start_calculating, false);
+textarea_.addEventListener("keydown", start_calculating, false);
 textarea_.addEventListener("keyup", spellcheck, false);
 reset_button.addEventListener("click", reset_b, false);
